@@ -13,8 +13,8 @@ class ImagesController extends Controller
     {
         $server = ServerFactory::create([
             'response' => new SymfonyResponseFactory($request),
-            'source' => $filesystem->getDriver(),
-            'cache' => $filesystem->getDriver(),
+            'source' => storage_path('app'),
+            'cache' => storage_path('app/cache'),
             'cache_path_prefix' => '.glide-cache',
         ]);
 

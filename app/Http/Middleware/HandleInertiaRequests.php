@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
+use App\Models\Account;
 use Inertia\Middleware;
+use Illuminate\Http\Request;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -33,18 +34,21 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $account = Account::first();
         return array_merge(parent::share($request), [
-            'auth' => function () use ($request) {
+            'auth' => function () use ($request, $account) {
                 return [
                     'user' => $request->user() ? [
                         'id' => $request->user()->id,
                         'first_name' => $request->user()->first_name,
                         'last_name' => $request->user()->last_name,
                         'email' => $request->user()->email,
-                        'owner' => $request->user()->owner,
+                        'status' => $request->user()->status,
+                        'roles' => $request->user()->roles->pluck('name'),
+                        'is_admin' => $request->user()->role === 'admin',
                         'account' => [
-                            'id' => $request->user()->account->id,
-                            'name' => $request->user()->account->name,
+                            'id' => $account->id,
+                            'name' => $account->name,
                         ],
                     ] : null,
                 ];

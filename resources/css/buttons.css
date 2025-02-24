@@ -1,5 +1,13 @@
+.btn-brand {
+  @apply px-6 py-3 rounded bg-brand-600 text-white text-sm leading-4 font-bold whitespace-nowrap hover:bg-orange-400 focus:bg-orange-400;
+}
+
 .btn-indigo {
   @apply px-6 py-3 rounded bg-indigo-600 text-white text-sm leading-4 font-bold whitespace-nowrap hover:bg-orange-400 focus:bg-orange-400;
+}
+
+.btn-kingbaker {
+  @apply px-6 py-3 rounded bg-brand-600 text-white text-sm leading-4 font-bold whitespace-nowrap hover:bg-brand-400 focus:bg-brand-400;
 }
 
 .btn-spinner,

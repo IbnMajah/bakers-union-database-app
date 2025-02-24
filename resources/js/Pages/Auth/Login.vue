@@ -1,6 +1,7 @@
 <template>
+  <div>
   <Head title="Login" />
-  <div class="flex items-center justify-center p-6 min-h-screen bg-indigo-800">
+  <div class="flex items-center justify-center p-6 min-h-screen bg-brand-300">
     <div class="w-full max-w-md">
       <logo class="block mx-auto w-full max-w-xs fill-white" height="50" />
       <form class="mt-8 bg-white rounded-lg shadow-xl overflow-hidden" @submit.prevent="login">
@@ -14,12 +15,13 @@
             <span class="text-sm">Remember Me</span>
           </label>
         </div>
-        <div class="flex px-10 py-4 bg-gray-100 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo ml-auto" type="submit">Login</loading-button>
+        <div class="flex px-10 py-4 bg-gray-50 border-t border-gray-100">
+          <loading-button :loading="form.processing" class="btn-brand ml-auto" type="submit">Login</loading-button>
         </div>
       </form>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -38,8 +40,8 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
-        email: 'johndoe@example.com',
-        password: 'secret',
+        email: '',
+        password: '',
         remember: false,
       }),
     }

@@ -12,9 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name', 50);
+            $table->unsignedBigInteger('bakery_id')->nullable();
+            $table->decimal('balance', 10, 2)->default(0);
+            $table->boolean('is_general')->default(false);
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('bakery_id')->references('id')->on('bakeries');
         });
     }
 
