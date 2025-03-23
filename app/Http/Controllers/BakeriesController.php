@@ -145,11 +145,12 @@ class BakeriesController extends Controller
     {
         Request::validate([
             'amount' => ['required', 'numeric', 'min:0'],
+            'description' => ['nullable', 'string', 'max:255'],
         ]);
 
         $amount = Request::get('amount');
         $date = now();
-        $description = "Payment from {$bakery->name}";
+        $description = Request::get('description') ?: "Payment from {$bakery->name}";
 
         // Get or create bakery account
         $bakeryAccount = $bakery->account ?? Account::create([
@@ -187,7 +188,7 @@ class BakeriesController extends Controller
             $generalAccount->increment('balance', $amount);
         });
 
-        return Redirect::route('bakeries')->with('success', 'Payment recorded successfully.');
+        return Redirect::back()->with('success', 'Payment recorded successfully.');
     }
 
     private function generateUniqueReference(): string

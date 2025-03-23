@@ -36,7 +36,7 @@
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/expenses">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" :class="isUrl('expenses') ? 'text-white' : 'text-brand-400 group-hover:text-white'" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          <path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 001.414 1.414l3-3zM11 9a1 1 0 100 2h4a1 1 0 100-2h-4zm-.707 3.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 011.414-1.414l3 3zM11 13a1 1 0 100 2h4a1 1 0 100-2h-4z" clip-rule="evenodd" />
         </svg>
         <div :class="isUrl('expenses') ? 'text-white' : 'text-brand-300 group-hover:text-white'">Expenses</div>
       </Link>

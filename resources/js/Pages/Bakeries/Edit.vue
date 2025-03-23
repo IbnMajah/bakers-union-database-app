@@ -179,6 +179,12 @@
             type="number"
             step="0.01"
             label="Amount"
+            class="w-full mb-4"
+          />
+          <textarea-input
+            v-model="paymentForm.description"
+            :error="paymentForm.errors.description"
+            label="Description"
             class="w-full"
           />
         </div>
@@ -253,6 +259,7 @@ export default {
       showPaymentModal: false,
       paymentForm: this.$inertia.form({
         amount: '',
+        description: '',
       }),
     }
   },
